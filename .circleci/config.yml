@@ -12,7 +12,7 @@ orbs:
 
   jobs:
     test:
-      executer: my-exe
+      executor: my-exe
       steps:
         - checkout
         - run: npm rebuild
