@@ -15,6 +15,7 @@ orbs:
       executor: my-exe
       steps:
         - checkout
+        - run: npm install
         - run: npm rebuild
         - run: npm test
 
