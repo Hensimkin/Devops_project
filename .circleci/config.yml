@@ -1,20 +1,17 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.7
 
-  jobs:
-    cicd-job:
-      executor:
-        name: node/default
-      steps:
-        - checkout
-        - run: npm install
-        - run: npm rebuild
-        - run: npm test
 
-  workflows:
-    example-workflow:
-      jobs:
-        - cicd-job
+jobs:
+  test:
+    steps:
+      - checkout
+      - run: npm rebuild
+      - run: npm test
+
+# Orchestrate our job run sequence
+workflows:
+  build_and_test:
+    jobs:
+      - test
 
 
